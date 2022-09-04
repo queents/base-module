@@ -1,12 +1,40 @@
 {
-    "name": "nwidart/base",
-    "description": "",
+    "name": "queents/vilt-base",
+    "description": "Base Module for VILT framework",
+    "type": "laravel-module",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "VILT",
+        "base",
+        "resource",
+        "page",
+        "vilt-admin",
+        "Vilt stack",
+        "admin panel",
+        "admin one",
+        "vuejs",
+        "ineriajs",
+        "tailwind.css"
+    ],
+    "homepage": "https://www.queentechsolutions.net",
     "authors": [
         {
-            "name": "Nicolas Widart",
-            "email": "n.widart@gmail.com"
+            "name": "Fady Mondy",
+            "email": "info@3x1.io",
+            "role": "Senior Fullstack Developer"
         }
     ],
+    "require": {
+        "joshbrw/laravel-module-installer": "^2.0",
+        "nwidart/laravel-modules": "^9.0",
+        "maatwebsite/excel": "^3.1",
+        "spatie/laravel-medialibrary": "^10.4",
+        "spatie/laravel-translatable": "^6.0",
+        "laravel/jetstream": "^2.11",
+        "queentc/vilt-roles-module": "^0.1",
+        "queentc/vilt-generator-module": "^0.1"
+    },
     "extra": {
         "laravel": {
             "providers": [],

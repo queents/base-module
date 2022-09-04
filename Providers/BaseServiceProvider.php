@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
+use Modules\Base\Console\InstallVilt;
 
 class BaseServiceProvider extends ServiceProvider
 {
@@ -38,6 +39,10 @@ class BaseServiceProvider extends ServiceProvider
         $this->loadViewsFrom(module_path($this->moduleName, 'Resources/views'), 'base');
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
         URL::forceScheme('https');
+
+        $this->commands([
+            InstallVilt::class
+        ]);
     }
 
     /**
