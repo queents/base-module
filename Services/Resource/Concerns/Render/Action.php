@@ -21,7 +21,7 @@ trait Action
     {
         $components = [];
 
-        if($this->import){
+        if($this->import && config('base.excel_import')){
             $components[] =  ActionComponent::make('import')
                 ->label(__('Import'))
                 ->icon('bx bx-import mr-1')
@@ -34,7 +34,7 @@ trait Action
                 \Modules\Base\Services\Components\Base\Action::make('import')->label(__('Import'))->icon('bx bx-circle')->action($this->table.'.import')
             ])->classType('modal');
         }
-        if($this->export){
+        if($this->export&& config('base.excel_export')){
             $components[] =  ActionComponent::make('export')
                 ->label(__('Export'))
                 ->icon('bx bx-spreadsheet mr-1')

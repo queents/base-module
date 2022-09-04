@@ -31,6 +31,7 @@
         "spatie/laravel-medialibrary": "^10.4",
         "spatie/laravel-translatable": "^6.0",
         "laravel/jetstream": "^2.11",
+        "spatie/laravel-translation-loader": "^2.7",
         "queents/roles-module": "^1.0",
         "queents/generator-module": "^1.0"
     },

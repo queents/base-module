@@ -49,7 +49,7 @@ class InstallVilt extends Command
          */
         $this->info('Install Jetstream');
         $this->runArtisan('jetstream:install', [
-            "inertia"
+            "stack"=>"inertia"
         ]);
         $this->info('Migrate Jetstream Tables');
         $this->runArtisan('migrate');
@@ -63,6 +63,10 @@ class InstallVilt extends Command
         $this->handelFile('/package.json', base_path('/package.json'));
         $this->info('Copy HandleInertiaRequests.php');
         $this->handelFile('/app/Http/Middleware/HandleInertiaRequests.php', app_path('/Http/Middleware/HandleInertiaRequests.php'));
+        $this->info('Copy User.php');
+        $this->handelFile('/app/Models/User.php', app_path('/Models/User.php'));
+        $this->info('Copy RouteServiceProvider.php');
+        $this->handelFile('/app/Providers/RouteServiceProvider.php', app_path('/Providers/RouteServiceProvider.php'));
         $this->info('Copy modules.php');
         $this->handelFile('/config/modules.php', config_path('/modules.php'));
         $this->info('Copy app.php');
@@ -70,35 +74,34 @@ class InstallVilt extends Command
         $this->info('Copy placeholder.webp');
         $this->handelFile('/public/placeholder.webp', public_path('/placeholder.webp'));
         $this->info('Copy css');
-        $this->handelFile('/resources/css', resource_path('/'), 'folder');
+        $this->handelFile('/resources/css', resource_path('/css'), 'folder');
         $this->info('Copy js');
-        $this->handelFile('/resources/js', resource_path('/'), 'folder');
+        $this->handelFile('/resources/js', resource_path('/js'), 'folder');
         $this->info('Copy views');
-        $this->handelFile('/resources/views', resource_path('/'), 'folder');
+        $this->handelFile('/resources/views', resource_path('/views'), 'folder');
         $this->info('Copy stubs');
         $this->handelFile('/stubs/nwidart-stubs', base_path('/stubs'), 'folder');
         $this->info('Clear cache');
         $this->runArtisan('optimize:clear');
-        $this->info('Install Main Roles and User');
-        $this->runArtisan('roles:install');
         $this->info('Please run npm i & npm run build');
     }
 
-    public function handelFile(string $from, string $to, string $type = 'file'): bool
+    public function handelFile(string $from, string $to, string $type = 'file'): void
     {
         $checkIfFileEx = $this->checkFile($to);
         if($checkIfFileEx){
             $this->deleteFile($to);
-            $this->copyFile($this->publish .$from, $to);
+            $this->copyFile($this->publish .$from, $to, $type);
         }
         else {
-            $this->copyFile($this->publish .$from, $to);
+            $this->copyFile($this->publish .$from, $to, $type);
         }
     }
 
-    public function runArtisan(string $command, array $args=[]): bool
+    public function runArtisan(string $command, array $args=[]): string
     {
-        return Artisan::call($command, $args);
+        Artisan::call($command, $args);
+        return  Artisan::output();
     }
     public function checkFile(string $path): bool
     {
@@ -106,20 +109,24 @@ class InstallVilt extends Command
     }
     public function copyFile(string $from,string $to, string $type ='file'): bool
     {
-        $copy = File::copy($from , $to);
-
         if($type === 'folder'){
             $copy = File::copyDirectory($from , $to);
+        }
+        else {
+            $copy = File::copy($from , $to);
         }
 
         return $copy;
     }
     public function deleteFile(string $path, string $type ='file'): bool
     {
-        $delete = File::delete($path);
+
 
         if($type === 'folder'){
             $delete = File::deleteDirectory($path);
+        }
+        else {
+            $delete = File::delete($path);
         }
 
         return $delete;

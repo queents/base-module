@@ -1,5 +1,6 @@
 <?php
 
 return [
-    'name' => 'Base'
+    'excel_import' => false,
+    'excel_export' => false
 ];

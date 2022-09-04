@@ -18,10 +18,10 @@ trait Export
             $select = [];
             $hide = [];
             foreach ($this->rows() as $row) {
-                if (($row->vue === 'ViltRelation.vue') && $row['list'] && $cols->{$row->name}) {
+                if (($row->vue === 'ViltRelation.vue') && $row->list && $cols->{$row->name}) {
                     $q->with($row->name);
                 }
-                if (($row->vue === 'ViltHasOne') && $row['list'] && $cols->{$row->name}) {
+                if (($row->vue === 'ViltHasOne') && $row->list && $cols->{$row->name}) {
                     $q->with($row->relation);
                     $hide[] = $row->name;
                 }
@@ -37,12 +37,12 @@ trait Export
             foreach ($data as $item) {
                 foreach ($this->rows() as $row) {
                     if ($row->list && ($row->vue === 'ViltRelation.vue') && $cols->{$row->name}) {
-                        if ($item[$row->name]) {
-                            $item[$row->name] = $item[$row->name][$row->trackByName];
+                        if (isset($item[$row->name])) {
+                            $item->{$row->name} = $item[$row->name][$row->trackByName];
                         }
                     }
                     if ($row->list && ($row->vue === 'ViltHasOne.vue') && $cols->{$row->name}) {
-                        if ($item[$row->relation]) {
+                        if (isset($item[$row->relation])) {
                             $item[$row->name] = $item[$row->relation][$row->trackByName];
                         }
                         unset($item[$row->relation]);
