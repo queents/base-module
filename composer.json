@@ -1,5 +1,5 @@
 {
-    "name": "queents/vilt-base",
+    "name": "queents/vilt-base-module",
     "description": "Base Module for VILT framework",
     "type": "laravel-module",
     "license": "MIT",
