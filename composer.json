@@ -1,5 +1,5 @@
 {
-    "name": "queents/vilt-base-module",
+    "name": "queents/base-module",
     "description": "Base Module for VILT framework",
     "type": "laravel-module",
     "license": "MIT",
@@ -31,8 +31,8 @@
         "spatie/laravel-medialibrary": "^10.4",
         "spatie/laravel-translatable": "^6.0",
         "laravel/jetstream": "^2.11",
-        "queents/vilt-roles-module": "^1.0",
-        "queents/vilt-generator-module": "^1.0"
+        "queents/roles-module": "^1.0",
+        "queents/generator-module": "^1.0"
     },
     "extra": {
         "laravel": {

@@ -6,11 +6,29 @@ VILT stack admin panel
 
 ## Install
 
-```shell
+```bash
 composer require queents/vilt-base-module
 ```
 
-```shell
+```bash
+php artisan vendor:publish --provider="Nwidart\Modules\LaravelModulesServiceProvider"
+```
+
+Add Modules to PSR-4 on `composer.json` 
+
+```json
+{
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Modules\\": "Modules/"
+        }
+    }
+}
+```
+Tip: don't forget to run `composer dump-autoload` afterwards
+
+```bash
 php artisan vilt:install
 ```
 
