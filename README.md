@@ -7,7 +7,7 @@ VILT stack admin panel
 ## Install
 
 ```bash
-composer require queents/vilt-base-module
+composer require queents/base-module
 ```
 
 Publish Module vendors
