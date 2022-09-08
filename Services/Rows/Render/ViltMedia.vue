@@ -106,7 +106,7 @@ import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 // Import image preview plugin styles
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css";
 
-import JetInputError from "@/Jetstream/InputError.vue";
+import JetInputError from "@@/Jetstream/InputError.vue";
 
 // // Create component
 const FilePond = vueFilePond(

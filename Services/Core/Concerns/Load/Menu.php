@@ -6,12 +6,14 @@ use Illuminate\Support\Collection;
 
 trait Menu
 {
+    public ?bool $hideMenu = false;
+
     /**
      * @return Collection
      */
     public static function loadMenu(): Collection
     {
-        $menus = collect(self::$menu)->groupBy('key');
+        $menus = self::addMenuHook();
         $menus->transform(function ($menu){
             $menu = collect($menu);
             $groups = $menu->sortBy('sort')->groupBy('group');
@@ -35,5 +37,10 @@ trait Menu
         });
 
         return $menus;
+    }
+
+    public static function addMenuHook(): Collection
+    {
+        return collect(self::$menu)->groupBy('key');
     }
 }

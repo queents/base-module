@@ -26,29 +26,32 @@ trait Response
     public function response(array $rows, LengthAwarePaginator $data, string $url, array $extra = []): array
     {
         $response = [
-            "success" => true,
-            "create" => $this->create,
-            "canView" => $this->canView,
-            "canViewAny" => $this->canViewAny,
-            "canEdit" => $this->canEdit,
-            "canCreate" => $this->canCreate,
-            "canDelete" => $this->canDelete,
-            "canDeleteAny" => $this->canDeleteAny,
-            "components" => $this->components(),
             "collection" => $data,
             "rows" => $rows,
-            "url" => $url,
-            "search" => $this->search,
-            "per_page" => $this->per_page,
-            "orderBy" => $this->orderBy,
-            "desc" => $this->orderDirection,
-            "filters" => $this->filters,
-            "lang" => $this->loadTranslations(),
-            "actions" => [],
-            "modals" => [],
-            "model" => $this->model,
-            "form" => $this->form(),
-            "table" => $this->table()
+            "roles" => [
+                "view" => $this->canView,
+                "viewAny" => $this->canViewAny,
+                "edit" => $this->canEdit,
+                "create" => $this->canCreate,
+                "delete" => $this->canDelete,
+                "deleteAny" => $this->canDeleteAny,
+            ],
+            "list" => [
+                "url" => $url,
+                "model" => $this->model,
+                "search" => $this->search,
+                "per_page" => $this->per_page,
+                "orderBy" => $this->orderBy,
+                "desc" => $this->orderDirection,
+                "filters" => $this->filters,
+            ],
+            "render" => [
+                "create" => $this->create,
+                "components" => $this->components(),
+                "lang" => $this->loadTranslations(),
+                "form" => $this->form(),
+                "table" => $this->table()
+            ]
         ];
 
         return array_merge($response, $extra);

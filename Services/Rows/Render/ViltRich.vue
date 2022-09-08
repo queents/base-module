@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import JetInputError from "@/Jetstream/InputError.vue";
+import JetInputError from "@@/Jetstream/InputError.vue";
 // Basic Use - Covers most scenarios
 import { VueEditor } from "vue3-editor";
 

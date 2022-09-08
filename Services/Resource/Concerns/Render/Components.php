@@ -7,15 +7,10 @@ use Modules\Base\Services\Components\Base\Component;
 use Modules\Base\Services\Components\Base\Modal as ModalComponent;
 use Modules\Base\Services\Rows\Media;
 
-trait Action
+trait Components
 {
     public ?bool $export = true;
     public ?bool $import = true;
-
-    public function actions(): array
-    {
-        return [];
-    }
 
     public function components(): array
     {

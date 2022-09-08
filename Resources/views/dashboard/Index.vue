@@ -1,20 +1,20 @@
 <script setup>
 import { Head } from '@inertiajs/inertia-vue3'
 import { computed, ref, onMounted } from "vue";
-import { useMainStore } from "@/Stores/main";
+import { useMainStore } from "@@/Stores/main";
 
-import SectionMain from '@/Components/SectionMain.vue'
-import SectionTitleLineWithButton from '@/Components/SectionTitleLineWithButton.vue'
-import BaseButton from '@/Components/BaseButton.vue'
-import CardBoxWidget from '@/Components/CardBoxWidget.vue'
-import CardBoxTransaction from '@/Components/CardBoxTransaction.vue'
-import CardBoxClient from '@/Components/CardBoxClient.vue'
-import SectionBannerStarOnGitHub from '@/Components/SectionBannerStarOnGitHub.vue'
-import CardBox from '@/Components/CardBox.vue'
-import NotificationBar from '@/Components/NotificationBar.vue'
-import TableSampleClients from '@/Components/TableSampleClients.vue'
-import LineChart from "@/Components/Charts/LineChart.vue";
-import * as chartConfig from "@/Components/Charts/chart.config.js";
+import SectionMain from '@@/Themes/AdminOne/SectionMain.vue'
+import SectionTitleLineWithButton from '@@/Themes/AdminOne/SectionTitleLineWithButton.vue'
+import BaseButton from '@@/Themes/AdminOne/BaseButton.vue'
+import CardBoxWidget from '@@/Themes/AdminOne/CardBoxWidget.vue'
+import CardBoxTransaction from '@@/Themes/AdminOne/CardBoxTransaction.vue'
+import CardBoxClient from '@@/Themes/AdminOne/CardBoxClient.vue'
+import SectionBannerStarOnGitHub from '@@/Themes/AdminOne/SectionBannerStarOnGitHub.vue'
+import CardBox from '@@/Themes/AdminOne/CardBox.vue'
+import NotificationBar from '@@/Themes/AdminOne/NotificationBar.vue'
+import TableSampleClients from '@@/Themes/AdminOne/TableSampleClients.vue'
+import LineChart from "@@/Themes/AdminOne/Charts/LineChart.vue";
+import * as chartConfig from "@@/Themes/AdminOne/Charts/chart.config.js";
 import {
     mdiAccountMultiple,
     mdiCartOutline,
@@ -43,10 +43,10 @@ const transactionBarItems = computed(() => mainStore.history);
 
 </script>
 <script>
-import ResourceTableLayout from '@@/Layouts/ResourceTableLayout.vue';
+import AppLayout from '@@/Layouts/AppLayout.vue';
 
 export default {
-    layout: ResourceTableLayout
+    layout: AppLayout
 }
 </script>
 

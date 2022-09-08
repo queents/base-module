@@ -65,7 +65,7 @@
 
 <script>
 import { defineComponent } from "vue";
-import JetInputError from "@/Jetstream/InputError.vue";
+import JetInputError from "@@/Jetstream/InputError.vue";
 import Multiselect from "@suadelabs/vue3-multiselect";
 import "@suadelabs/vue3-multiselect/dist/vue3-multiselect.css";
 

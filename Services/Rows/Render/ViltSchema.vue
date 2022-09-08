@@ -61,7 +61,7 @@
 
 <script>
 import { defineComponent } from "vue";
-import JetInputError from "@/Jetstream/InputError.vue";
+import JetInputError from "@@/Jetstream/InputError.vue";
 import ViltText from '$$/ViltText.vue'
 import ViltTel from '$$/ViltTel.vue'
 import ViltTextArea from "$$/ViltTextArea.vue";

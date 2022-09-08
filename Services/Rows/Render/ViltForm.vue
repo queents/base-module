@@ -119,7 +119,7 @@
 
 <script>
 import { defineComponent } from 'vue';
-import JetInputError from '@/Jetstream/InputError.vue';
+import JetInputError from '@@/Jetstream/InputError.vue';
 import ViltText from '$$/ViltText.vue';
 import ViltTel from '$$/ViltTel.vue';
 import ViltTextArea from '$$/ViltTextArea.vue';
@@ -177,25 +177,29 @@ export default defineComponent({
             default: false,
         },
     },
-    mounted() {
-        let rows = this.$props.rows;
-        let getRows = {};
-        for (let i = 0; i < rows.length; i++) {
-            if(rows[i].default){
-                getRows[rows[i].name] = rows[i].default;
-            }
-            else {
-                getRows[rows[i].name] = "";
+    computed:{
+        getRows(){
+            let rows = this.$props.rows;
+            let getRows = {};
+            for (let i = 0; i < rows.length; i++) {
+                if(rows[i].default){
+                    getRows[rows[i].name] = rows[i].default;
+                }
+                else {
+                    if(rows[i].vue === 'ViltRelation.vue' || rows[i].vue === 'ViltRepeater.vue' || rows[i].vue === 'ViltSchema.vue'){
+                        getRows[rows[i].name] = [];
+                    }
+                    else {
+                        getRows[rows[i].name] = "";
+                    }
+                }
             }
 
+            return getRows;
         }
-
-        this.form = getRows;
     },
-    beforeUpdate() {
-        if (this.modelValue) {
-            this.form = this.modelValue;
-        }
+    mounted() {
+        this.form = this.getRows;
     },
     methods: {
         update() {

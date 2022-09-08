@@ -26,14 +26,9 @@
         }
     ],
     "require": {
-        "joshbrw/laravel-module-installer": "^2.0",
-        "nwidart/laravel-modules": "^9.0",
+        "queents/vilt": "^1.0",
         "spatie/laravel-medialibrary": "^10.4",
-        "spatie/laravel-translatable": "^6.0",
-        "laravel/jetstream": "^2.11",
-        "spatie/laravel-translation-loader": "^2.7",
-        "queents/roles-module": "^1.0",
-        "queents/generator-module": "^1.0"
+        "laravel/jetstream": "^2.11"
     },
     "extra": {
         "laravel": {

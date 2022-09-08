@@ -37,7 +37,7 @@
 
 <script>
 import { defineComponent } from "vue";
-import JetInputError from "@/Jetstream/InputError.vue";
+import JetInputError from "@@/Jetstream/InputError.vue";
 import flatPickr from "vue-flatpickr-component";
 import moment from "moment";
 import 'flatpickr/dist/flatpickr.css';

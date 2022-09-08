@@ -11,7 +11,7 @@ trait Filter
     public ?string $search = null;
     public ?int $per_page = 10;
     public ?string $orderBy = "id";
-    public ?string $orderDirection = "desc";
+    public ?string $orderDirection = "asc";
     public ?array $filters = [];
 
     public function loadFilters(Request $request): void

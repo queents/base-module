@@ -8,7 +8,7 @@
         <textarea
             rows="5"
             :name="row.name"
-            :id="row.named"
+            :id="row.name"
             :disabled="row.disabled"
             v-model="value"
             :placeholder="row.placeholder"
@@ -34,7 +34,7 @@
 </template>
 <script>
 import { defineComponent } from "vue";
-import JetInputError from "@/Jetstream/InputError.vue";
+import JetInputError from "@@/Jetstream/InputError.vue";
 
 export default defineComponent({
     components: {

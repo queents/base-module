@@ -27,7 +27,7 @@
 
 <script>
 import { defineComponent } from "vue";
-import JetInputError from "@/Jetstream/InputError.vue";
+import JetInputError from "@@/Jetstream/InputError.vue";
 import VSwatches from "vue3-swatches";
 
 export default defineComponent({

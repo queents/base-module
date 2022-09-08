@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Validator;
 use Inertia\Inertia;
 use Maatwebsite\Excel\Facades\Excel;
 use Modules\Base\Exports\BaseExport;
-use Modules\Base\Helpers\Resources\Controller;
 use Modules\Base\Imports\BaseImport;
 use Modules\Base\Services\Resource\Concerns\Pages;
 use Modules\Base\Services\Resource\Concerns\Actions;
@@ -47,8 +46,7 @@ class Resource implements MustHasRows
      * Load Renders
      */
     use Render\Row;
-    use Render\Action;
-    use Render\Modal;
+    use Render\Components;
     use Render\Table;
     use Render\Form;
 

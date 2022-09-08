@@ -67,8 +67,8 @@
 <script>
 import { defineComponent } from "vue";
 import Toggle from "@vueform/toggle";
-import JetInputError from "@/Jetstream/InputError.vue";
-import JetLabel from "@/Jetstream/Label.vue";
+import JetInputError from "@@/Jetstream/InputError.vue";
+import JetLabel from "@@/Jetstream/Label.vue";
 import '@vueform/toggle/themes/default.css';
 
 export default defineComponent({

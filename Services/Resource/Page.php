@@ -23,8 +23,7 @@ class Page implements MustHasRows
      * Load Renders
      */
     use Render\Row;
-    use Render\Action;
-    use Render\Modal;
+    use Render\Components;
     use Render\Table;
     use Render\Form;
 
