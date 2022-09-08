@@ -2,8 +2,6 @@
 
 namespace Modules\Base\Services\Resource\Concerns\Handlers;
 
-use Modules\Base\Helpers\Resources\Lang;
-
 trait Translation
 {
     public ?string $resourceTitle = null;
