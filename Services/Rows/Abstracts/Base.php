@@ -25,6 +25,7 @@ use Modules\Base\Services\Concerns\HasTrack;
 use Modules\Base\Services\Concerns\HasType;
 use Modules\Base\Services\Concerns\HasValidation;
 use Modules\Base\Services\Concerns\IsDisabled;
+use Modules\Base\Services\Concerns\IsMoney;
 use Modules\Base\Services\Concerns\IsMulti;
 use Modules\Base\Services\Concerns\IsOver;
 use Modules\Base\Services\Concerns\IsReactive;
@@ -66,5 +67,6 @@ abstract class Base implements Component
     use IsUnique;
     use IsReactive;
     use IsSearchable;
+    use IsMoney;
     use IsSortable;
 }

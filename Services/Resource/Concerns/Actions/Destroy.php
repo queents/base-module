@@ -41,14 +41,19 @@ trait Destroy
              */
             foreach($this->rows() as $row){
                 if($row->vue === 'ViltRelation.vue'){
-                    $record->{$row->name}()->sync([]);
+                    $record->{$row->relation}()->sync([]);
                 }
             }
 
             /*
              * Delete Record
              */
-            $record->delete();
+            try{
+                $record->delete();
+            }
+            catch (\Exception $e){
+                return Alert::make(__('Sorry You Can Not Delete This Record'))->fire();
+            }
 
             /*
              * Add Hook After

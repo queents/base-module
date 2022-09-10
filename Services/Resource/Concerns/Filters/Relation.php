@@ -11,9 +11,6 @@ trait Relation
                 if(!empty($row->relation)){
                     $query->with($row->relation);
                 }
-                else {
-                    $query->with($row->name);
-                }
             }
         }
 

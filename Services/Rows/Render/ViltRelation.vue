@@ -55,11 +55,27 @@
             <p class="font-bold capitalize">{{ row.label ? row.label: row.name }}</p>
         </div>
         <div>
-            <p class="m-1 text-center bg-primary-600 text-white rounded-lg w-full" v-for="(item, key) in modelValue">{{ item[row.trackByName] }}</p>
+            <p
+                v-for="(item, key) in modelValue"
+                :key="key"
+                class="m-1 p-1 text-center bg-primary-600 text-white rounded-lg"
+                :style="item.hasOwnProperty('color') ? 'background-color: ' + item.color : ''"
+            >
+                <i v-if="item.hasOwnProperty('icon')" :class="item.icon"></i>
+                {{ item[row.trackByName] }}
+            </p>
         </div>
     </div>
     <div v-if="view === 'table'">
-        <p class="m-1 text-center bg-primary-600 text-white rounded-lg w-full" v-for="(item, key) in modelValue">{{ item[row.trackByName] }}</p>
+        <p
+           v-for="(item, key) in modelValue"
+           :key="key"
+           class="m-1 p-1 text-center bg-primary-600 text-white rounded-lg"
+           :style="item.hasOwnProperty('color') ? 'background-color: ' + item.color : ''"
+        >
+            <i v-if="item.hasOwnProperty('icon')" :class="item.icon"></i>
+            {{ item[row.trackByName] }}
+        </p>
     </div>
 </template>
 

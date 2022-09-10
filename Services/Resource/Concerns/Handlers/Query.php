@@ -37,7 +37,7 @@ trait Query
              * Load Relation by JOIN for HasOne && HasMany
              */
             if (($row->vue === 'ViltRelation.vue') && $row->list) {
-                $query->with($row->name);
+                $query->with($row->relation);
             }
             else if (($row->vue === 'ViltHasOne.vue') && $row->list) {
                 $query->with($row->relation);

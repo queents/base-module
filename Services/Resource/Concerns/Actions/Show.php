@@ -111,7 +111,7 @@ trait Show
     public function unsetShowData($record): void
     {
         foreach($this->rows() as $row) {
-            if ($row->vue === 'ViltHasOne.vue' && !empty($row->relation)) {
+            if (($row->vue === 'ViltHasOne.vue' || $row->vue === 'ViltRelation.vue') && !empty($row->relation)) {
                 $record->{$row->name} = $record->{$row->relation};
                 unset($record->{$row->relation});
             }

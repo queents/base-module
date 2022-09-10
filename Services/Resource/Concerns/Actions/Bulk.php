@@ -58,14 +58,19 @@ trait Bulk
                      */
                     foreach ($this->rows() as $row) {
                         if ($row->vue === 'relation') {
-                            $record->{$row->name}()->sync([]);
+                            $record->{$row->relation}()->sync([]);
                         }
                     }
 
                     /*
                      * Delete Selected Record
                      */
-                    $record->delete();
+                    try{
+                        $record->delete();
+                    }
+                    catch (\Exception $e){
+                        return Alert::make(__('Sorry You Can Not Delete One Of This Records'))->fire();
+                    }
                 }
             }
 

@@ -48,10 +48,12 @@ foreach ($routes as $route) {
             }
             Route::get("/", [$route['controller'], 'index'])->name('index');
             Route::post("/", [$route['controller'], 'store'])->name('store');
+            Route::get("/create", [$route['controller'], 'create'])->name('create');
             Route::post("/bulk", [$route['controller'], 'bulk'])->name('bulk');
             Route::get("/export", [$route['controller'], 'export'])->name('export');
             Route::post("/import", [$route['controller'], 'import'])->name('import');
             Route::get("/{id}", [$route['controller'], 'show'])->name('show');
+            Route::get("/{id}/edit", [$route['controller'], 'edit'])->name('edit');
             Route::post("/{id}", [$route['controller'], 'update'])->name('update');
             Route::delete("/{id}", [$route['controller'], 'destory'])->name('destory');
         });

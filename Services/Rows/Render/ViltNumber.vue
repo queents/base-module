@@ -26,8 +26,13 @@
             <p class="font-bold capitalize">{{ row.label ? row.label: row.name }}</p>
         </div>
         <div>
-            <p>{{ modelValue }}</p>
+            <p v-if="row.money">{{ money(modelValue) }}</p>
+            <p v-else>{{ modelValue }}</p>
         </div>
+    </div>
+    <div class="flex justify-between my-4" v-if="view === 'table'">
+        <p v-if="row.money">{{ money(modelValue) }}</p>
+        <p v-else>{{ modelValue }}</p>
     </div>
 </template>
 
@@ -57,6 +62,44 @@ export default defineComponent({
     data(){
         return {
             value: ""
+        }
+    },
+    methods: {
+        money(item) {
+            if(item){
+                if (localStorage.getItem('lang')) {
+                    let lang = JSON.parse(localStorage.getItem('lang'));
+                    if (lang.id === 'ar') {
+                        return item.toLocaleString('en-US', {
+                            style: 'currency',
+                            currency: 'EGP',
+                        });
+                    } else if (lang.id === 'en') {
+                        return item.toLocaleString('ar-EG', {
+                            style: 'currency',
+                            currency: 'EGP',
+                        });
+                    }
+                }
+            }
+            else {
+                item = 0;
+                if (localStorage.getItem('lang')) {
+                    let lang = JSON.parse(localStorage.getItem('lang'));
+                    if (lang.id === 'ar') {
+                        return item.toLocaleString('en-US', {
+                            style: 'currency',
+                            currency: 'EGP',
+                        });
+                    } else if (lang.id === 'en') {
+                        return item.toLocaleString('ar-EG', {
+                            style: 'currency',
+                            currency: 'EGP',
+                        });
+                    }
+                }
+            }
+
         }
     },
     mounted(){

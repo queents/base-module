@@ -8,12 +8,14 @@ trait Core
 {
     public static function get(): array
     {
+        $message = session()->get('message');
+        setting('message', "");
         $data = [
             "menus" => self::loadMenu(),
             "trans" => self::loadLanguage(),
             "appName" => config('app.name'),
             "appUrl" => url('/'),
-            "message" => session()->get('message'),
+            "message" => $message,
         ];
 
         $share = self::loadShareData();
