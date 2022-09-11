@@ -9,7 +9,7 @@ trait Core
     public static function get(): array
     {
         $message = session()->get('message');
-        setting('message', "");
+        session('message', "");
         $data = [
             "menus" => self::loadMenu(),
             "trans" => self::loadLanguage(),
