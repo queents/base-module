@@ -176,6 +176,10 @@ export default defineComponent({
             Boolean,
             default: false,
         },
+        value: {
+            Object,
+            default: {},
+        },
     },
     computed:{
         getRows(){
@@ -199,7 +203,12 @@ export default defineComponent({
         }
     },
     mounted() {
-        this.form = this.getRows;
+        if(Object.keys(this.value).length){
+            this.form = this.value;
+        }
+        else {
+            this.form = this.getRows;
+        }
     },
     methods: {
         update() {

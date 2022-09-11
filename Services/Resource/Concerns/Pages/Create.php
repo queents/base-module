@@ -12,8 +12,15 @@ trait Create
 
     public function create(Request $request): \Inertia\Response
     {
+        /*
+         * Check if user has role to create a new record
+         */
+        if ($this->checkRoles('canCreate') && !$this->isAPI($request)) {
+            return $this->checkRoles('canCreate');
+        }
+
         $rows = $this->rows();
-        return Render::make(Str::ucfirst($this->table).'/Create')->module($this->module)->data([
+        return Render::make(ucfirst(Str::camel($this->table)).'/Create')->module($this->module)->data([
             "rows" => $rows,
             "url" => $this->table
         ])->render();
