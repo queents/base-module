@@ -4,6 +4,7 @@ namespace Modules\Base\Services\Components\Base;
 
 use Modules\Base\Services\Concerns\HasButton;
 use Modules\Base\Services\Concerns\HasClassType;
+use Modules\Base\Services\Concerns\HasDescription;
 use Modules\Base\Services\Concerns\HasIcon;
 use Modules\Base\Services\Concerns\HasLabel;
 use Modules\Base\Services\Concerns\HasType;
@@ -18,4 +19,5 @@ class Widget extends HasMake
     use HasButton;
     use HasClassType;
     use HasValue;
+    use HasDescription;
 }

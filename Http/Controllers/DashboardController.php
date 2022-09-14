@@ -11,7 +11,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return Render::make('dashboard/Index')->module('Base')->render();
+        return Inertia::render('Index');
     }
 
     public function logout()

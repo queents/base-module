@@ -5,6 +5,7 @@ namespace Modules\Base\Services\Components;
 use Modules\Base\Services\Components\Abstracts\ComponentAbstract;
 use Modules\Base\Services\Components\Base\Widget;
 use Modules\Base\Services\Concerns\HasButton;
+use Modules\Base\Services\Concerns\HasDescription;
 use Modules\Base\Services\Concerns\HasIcon;
 use Modules\Base\Services\Concerns\HasLabel;
 use Modules\Base\Services\Concerns\HasName;
@@ -20,6 +21,7 @@ class Widgets extends ComponentAbstract
     use HasIcon;
     use HasButton;
     use HasValue;
+    use HasDescription;
 
     public function get(): mixed
     {
@@ -28,6 +30,7 @@ class Widgets extends ComponentAbstract
             ->type($this->type)
             ->icon($this->icon)
             ->buttons($this->buttons)
-            ->value($this->value);
+            ->value($this->value)
+            ->description($this->description);
     }
 }
