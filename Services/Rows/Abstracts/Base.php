@@ -24,6 +24,7 @@ use Modules\Base\Services\Concerns\HasTab;
 use Modules\Base\Services\Concerns\HasTrack;
 use Modules\Base\Services\Concerns\HasType;
 use Modules\Base\Services\Concerns\HasValidation;
+use Modules\Base\Services\Concerns\IsBadge;
 use Modules\Base\Services\Concerns\IsDisabled;
 use Modules\Base\Services\Concerns\IsMoney;
 use Modules\Base\Services\Concerns\IsMulti;
@@ -69,4 +70,5 @@ abstract class Base implements Component
     use IsSearchable;
     use IsMoney;
     use IsSortable;
+    use IsBadge;
 }
