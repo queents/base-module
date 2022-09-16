@@ -8,7 +8,7 @@ trait HasColor
      * @var ?string
      * @example 12
      */
-    public ?string $color = "green";
+    public ?string $color = null;
 
     public function color($color): static
     {

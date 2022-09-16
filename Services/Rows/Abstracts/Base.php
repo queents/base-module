@@ -34,6 +34,7 @@ use Modules\Base\Services\Concerns\IsRequired;
 use Modules\Base\Services\Concerns\IsSearchable;
 use Modules\Base\Services\Concerns\IsSortable;
 use Modules\Base\Services\Concerns\IsUnique;
+use Modules\Base\Services\Concerns\IsUrl;
 use Modules\Base\Services\Rows\Interfaces\Component;
 
 abstract class Base implements Component
@@ -61,6 +62,7 @@ abstract class Base implements Component
     use HasOptions;
     use HasTrack;
     use HasValidation;
+    use IsUrl;
     use IsMulti;
     use IsOver;
     use IsDisabled;

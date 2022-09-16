@@ -48,7 +48,7 @@ trait Query
              */
             if ($isAPI) {
                 if (($row->vue === 'ViltRelation.vue') ) {
-                    $query->with($row->name);
+                    $query->with($row->relation);
                 }
                 if (($row->vue === 'ViltHasOne.vue')) {
                     $query->with($row->relation);

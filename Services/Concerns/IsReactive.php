@@ -16,10 +16,10 @@ trait IsReactive
     public ?string $reactiveRow = null;
 
     /**
-     * @var ?string
+     * @var string|bool|array|int|null
      * @example 'name'
      */
-    public ?string $reactiveWhere = null;
+    public string|bool|array|int|null|object  $reactiveWhere = null;
 
 
     /**
@@ -42,10 +42,10 @@ trait IsReactive
     }
 
     /**
-     * @param string $reactiveWhere
+     * @param string|bool|array|int|object  $reactiveWhere
      * @return $this
      */
-    public function reactiveWhere(string $reactiveWhere): static
+    public function reactiveWhere(string|bool|array|int|object $reactiveWhere): static
     {
         $this->reactiveWhere = $reactiveWhere;
         return $this;

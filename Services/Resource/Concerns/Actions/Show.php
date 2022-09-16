@@ -32,11 +32,6 @@ trait Show
         $query->find($id);
 
         /*
-         * Set JOIN to relation
-         */
-        $this->filterRelation($query);
-
-        /*
          * Make a Hook before get Query
          */
         $this->beforeShowQuery($query, $request, $this->rows());
@@ -47,11 +42,18 @@ trait Show
         /*
          * Get Query
          */
-        $record = $query->select(collect($this->rows())->where('view', true)
+        $query->select(collect($this->rows())->where('view', true)
             ->where('vue', '!=', 'ViltMedia.vue')
             ->where('vue', '!=', 'ViltRelation.vue')
             ->where('over', '!=', true)
             ->pluck('name')->toArray())->first();
+
+        /*
+         * Set JOIN to relation
+         */
+        $this->filterRelation($query);
+
+        $record = $query->first();
 
         /*
          * Make a Hook after get Query
@@ -111,9 +113,9 @@ trait Show
     public function unsetShowData($record): void
     {
         foreach($this->rows() as $row) {
-            if (($row->vue === 'ViltHasOne.vue' || $row->vue === 'ViltRelation.vue') && !empty($row->relation)) {
+            if (($row->vue === 'ViltHasOne.vue') && !empty($row->relation)) {
                 $record->{$row->name} = $record->{$row->relation};
-                unset($record->{$row->relation});
+                unset($record->{$row->name});
             }
         }
     }
