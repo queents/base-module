@@ -115,7 +115,7 @@ trait Show
         foreach($this->rows() as $row) {
             if (($row->vue === 'ViltHasOne.vue') && !empty($row->relation)) {
                 $record->{$row->name} = $record->{$row->relation};
-                unset($record->{$row->name});
+                unset($record->{$row->relation});
             }
         }
     }

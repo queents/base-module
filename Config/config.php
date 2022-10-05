@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'excel_import' => false,
-    'excel_export' => false
+    'excel_import' => true,
+    'excel_export' => true
 ];

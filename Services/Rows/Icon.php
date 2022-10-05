@@ -4,10 +4,10 @@ namespace Modules\Base\Services\Rows;
 
 use Modules\Base\Services\Rows\Abstracts\Base;
 
-class Color extends Base
+class Icon extends Base
 {
 
-    public string $vue = 'ViltColor.vue';
+    public string $vue = 'ViltIcon.vue';
 
     /**
      * @param string $name
