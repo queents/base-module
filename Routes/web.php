@@ -53,6 +53,7 @@ foreach ($routes as $route) {
             Route::get("/export", [$route['controller'], 'export'])->name('export');
             Route::post("/import", [$route['controller'], 'import'])->name('import');
             Route::get("/{id}/view", [$route['controller'], 'view'])->name('view');
+            Route::post("/{id}/action", [$route['controller'], 'action'])->name('action');
             Route::get("/{id}", [$route['controller'], 'show'])->name('show');
             Route::get("/{id}/edit", [$route['controller'], 'edit'])->name('edit');
             Route::post("/{id}", [$route['controller'], 'update'])->name('update');

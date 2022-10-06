@@ -8,6 +8,7 @@ use Modules\Base\Services\Concerns\HasLabel;
 use Modules\Base\Services\Concerns\HasModel;
 use Modules\Base\Services\Concerns\HasRows;
 use Modules\Base\Services\Concerns\HasType;
+use Modules\Base\Services\Concerns\IsConfirmed;
 use Modules\Base\Services\Core\Abstracts\HasMake;
 
 class Filter extends HasMake
@@ -17,4 +18,5 @@ class Filter extends HasMake
     use HasModel;
     use HasRows;
     use HasAction;
+    use IsConfirmed;
 }

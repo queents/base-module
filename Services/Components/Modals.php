@@ -5,6 +5,7 @@ namespace Modules\Base\Services\Components;
 
 use Modules\Base\Services\Components\Abstracts\ComponentAbstract;
 use Modules\Base\Services\Components\Base\Modal;
+use Modules\Base\Services\Concerns\HasBody;
 use Modules\Base\Services\Concerns\HasButton;
 use Modules\Base\Services\Concerns\HasIcon;
 use Modules\Base\Services\Concerns\HasLabel;
@@ -20,6 +21,7 @@ class Modals extends ComponentAbstract {
     use HasIcon;
     use HasButton;
     use HasRows;
+    use HasBody;
 
     public function get(): mixed
     {
@@ -28,6 +30,7 @@ class Modals extends ComponentAbstract {
             ->type($this->type)
             ->icon($this->icon)
             ->buttons($this->buttons)
+            ->body($this->body)
             ->rows($this->rows);
     }
 }

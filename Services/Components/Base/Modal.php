@@ -2,6 +2,7 @@
 
 namespace Modules\Base\Services\Components\Base;
 
+use Modules\Base\Services\Concerns\HasBody;
 use Modules\Base\Services\Concerns\HasButton;
 use Modules\Base\Services\Concerns\HasClassType;
 use Modules\Base\Services\Concerns\HasIcon;
@@ -19,4 +20,5 @@ class Modal extends HasMake
     use HasButton;
     use HasClassType;
     use HasRows;
+    use HasBody;
 }

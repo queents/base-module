@@ -10,6 +10,7 @@ use Modules\Base\Services\Concerns\HasModal;
 use Modules\Base\Services\Concerns\HasType;
 use Modules\Base\Services\Concerns\HasUrl;
 use Modules\Base\Services\Concerns\IsCan;
+use Modules\Base\Services\Concerns\IsConfirmed;
 use Modules\Base\Services\Core\Abstracts\HasMake;
 
 
@@ -23,4 +24,5 @@ class Action extends HasMake
     use HasUrl;
     use HasClassType;
     use IsCan;
+    use IsConfirmed;
 }
