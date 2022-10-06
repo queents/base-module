@@ -13,6 +13,7 @@ use Modules\Base\Services\Concerns\HasName;
 use Modules\Base\Services\Concerns\HasType;
 use Modules\Base\Services\Concerns\HasUrl;
 use Modules\Base\Services\Concerns\IsCan;
+use Modules\Base\Services\Concerns\IsConfirmed;
 
 class Actions extends ComponentAbstract
 {
@@ -23,6 +24,7 @@ class Actions extends ComponentAbstract
     use HasAction;
     use HasModal;
     use HasUrl;
+    use IsConfirmed;
     use IsCan;
 
     public function get(): mixed
@@ -33,6 +35,7 @@ class Actions extends ComponentAbstract
             ->icon($this->icon)
             ->action($this->action)
             ->modal($this->modal)
+            ->confirmed($this->confirmed)
             ->url($this->url)
             ->can($this->can);
     }

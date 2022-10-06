@@ -84,6 +84,7 @@ class Resource implements MustHasRows
     use Actions\Bulk;
     use Actions\Import;
     use Actions\Export;
+    use Actions\Action;
 
     /*
      * Load Process
