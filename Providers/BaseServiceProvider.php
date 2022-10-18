@@ -2,11 +2,13 @@
 
 namespace Modules\Base\Providers;
 
-use Illuminate\Support\Facades\Cookie;
-use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\URL;
-use Illuminate\Support\ServiceProvider;
+use Modules\Base\Services\Core\VILT;
+use Illuminate\Support\Facades\Crypt;
 use Modules\Base\Console\InstallVilt;
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\ServiceProvider;
+use Modules\Base\Services\Components\Base\Menu;
 
 class BaseServiceProvider extends ServiceProvider
 {
@@ -27,6 +29,10 @@ class BaseServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        VILT::registerMenu(Menu::make('Dashboard')->label('global.dashboard')->icon('bx bx-home')->route('dashboard')->sort(0));
+        VILT::registerMenu(Menu::make('Profile')->label('global.profile')->icon('bx bxs-user')->key('profile')->route('profile.show'));
+
+
         if (!empty(Cookie::get('lang'))) {
             $local = explode('|', Crypt::decrypt(Cookie::get('lang'), false))[1];
         } else {
