@@ -3,6 +3,8 @@
 namespace Modules\Base\Services\Core\Concerns\Getters;
 
 use App\Models\User;
+use Illuminate\Support\Facades\File;
+use Nwidart\Modules\Facades\Module;
 
 trait Core
 {
@@ -10,8 +12,17 @@ trait Core
     {
         $message = session()->get('message');
         session('message', "");
+        if (\Module::collections()->has('Menu')) {
+            if (File::exists(base_path('menu.json'))) {
+                $menu = json_decode(File::get(base_path('menu.json')));
+            } else {
+                $menu = self::loadMenu();
+            }
+        } else {
+            $menu = self::loadMenu();
+        }
         $data = [
-            "menus" => self::loadMenu(),
+            "menus" => $menu,
             "trans" => self::loadLanguage(),
             "appName" => config('app.name'),
             "appUrl" => url('/'),
