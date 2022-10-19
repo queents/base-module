@@ -5,6 +5,7 @@ namespace Modules\Base\Http\Controllers;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Modules\Base\Services\Components\Base\Alert;
 use Modules\Base\Services\Components\Base\Render;
 
 class DashboardController extends Controller
@@ -52,6 +53,16 @@ class DashboardController extends Controller
                 "message" => "Record not found"
             ], 404);
         }
+    }
 
+    public  function create(Request $request){
+        $request->validate([
+           "model" => "required"
+        ]);
+
+        $model = $request->get('model');
+        $model::create($request->all());
+
+        return Alert::make(__('Your Record Has Been Added'))->fire();
     }
 }

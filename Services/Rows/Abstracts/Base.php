@@ -2,6 +2,7 @@
 
 namespace Modules\Base\Services\Rows\Abstracts;
 
+use Modules\Base\Services\Concerns\HasAdd;
 use Modules\Base\Services\Concerns\HasColor;
 use Modules\Base\Services\Concerns\HasDefault;
 use Modules\Base\Services\Concerns\HasDescription;
@@ -20,6 +21,7 @@ use Modules\Base\Services\Concerns\HasReactiveBy;
 use Modules\Base\Services\Concerns\HasReactiveRow;
 use Modules\Base\Services\Concerns\HasRelation;
 use Modules\Base\Services\Concerns\HasRoles;
+use Modules\Base\Services\Concerns\HasRows;
 use Modules\Base\Services\Concerns\HasTab;
 use Modules\Base\Services\Concerns\HasTrack;
 use Modules\Base\Services\Concerns\HasType;
@@ -64,6 +66,8 @@ abstract class Base implements Component
     use HasTrack;
     use HasView;
     use HasValidation;
+    use HasRows;
+    use HasAdd;
     use IsUrl;
     use IsMulti;
     use IsOver;

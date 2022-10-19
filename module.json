@@ -16,7 +16,7 @@
         "ineriajs",
         "tailwind.css"
     ],
-    "priority": 455,
+    "priority": 500,
     "providers": [
         "Modules\\Base\\Providers\\BaseServiceProvider"
     ],
