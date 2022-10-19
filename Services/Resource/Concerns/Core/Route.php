@@ -11,7 +11,8 @@ trait Route
 
     public function routes()
     {
-        return Router::make($this->table)->middleware(['auth:sanctum'])->controller(static::class)->custom($this->route())->page($this->page)->api($this->api)->get();
+        $route =   Router::make($this->table)->middleware(['auth:sanctum'])->controller(static::class)->custom($this->route())->page($this->page)->api($this->api)->get();
+        return $route;
     }
 
     public function route(): array

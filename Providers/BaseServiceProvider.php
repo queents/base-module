@@ -31,7 +31,10 @@ class BaseServiceProvider extends ServiceProvider
     {
         VILT::registerMenu(Menu::make('Dashboard')->label('global.dashboard')->icon('bx bx-home')->route('dashboard')->sort(0));
         VILT::registerMenu(Menu::make('Profile')->label('global.profile')->icon('bx bxs-user')->key('profile')->route('profile.show'));
-
+        $this->registerConfig();
+        $this->loadViewsFrom(module_path($this->moduleName, 'Resources/views'), 'base');
+        $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
+        URL::forceScheme('https');
 
         if (!empty(Cookie::get('lang'))) {
             $local = explode('|', Crypt::decrypt(Cookie::get('lang'), false))[1];
@@ -40,11 +43,6 @@ class BaseServiceProvider extends ServiceProvider
         }
 
         app()->setLocale($local);
-
-        $this->registerConfig();
-        $this->loadViewsFrom(module_path($this->moduleName, 'Resources/views'), 'base');
-        $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
-        URL::forceScheme('https');
     }
 
     /**
