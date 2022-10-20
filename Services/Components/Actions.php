@@ -33,7 +33,7 @@ class Actions extends ComponentAbstract
             ->label($this->label)
             ->type($this->type)
             ->icon($this->icon)
-            ->action($this->action)
+            ->action($this->action, $this->actionMethod)
             ->modal($this->modal)
             ->confirmed($this->confirmed)
             ->url($this->url)

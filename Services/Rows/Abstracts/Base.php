@@ -3,6 +3,7 @@
 namespace Modules\Base\Services\Rows\Abstracts;
 
 use Modules\Base\Services\Concerns\HasAdd;
+use Modules\Base\Services\Concerns\HasApi;
 use Modules\Base\Services\Concerns\HasColor;
 use Modules\Base\Services\Concerns\HasDefault;
 use Modules\Base\Services\Concerns\HasDescription;
@@ -45,6 +46,7 @@ abstract class Base implements Component
     use HasName;
     use HasLabel;
     use HasDefault;
+    use HasApi;
     use HasRoles;
     use HasPlaceholder;
     use HasHint;
