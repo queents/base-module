@@ -70,4 +70,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('/select', [DashboardController::class, 'select'])->name('select');
     Route::post('/create', [DashboardController::class, 'create'])->name('create');
     Route::post('logout', [DashboardController::class, 'logout'])->name('logout');
+    Route::post('media/delete/{media}', [DashboardController::class, 'destroy'])->name('media.destroy');
+    Route::get('media/get-media', [DashboardController::class, 'getMedia'])->name('media.api');
 });
+

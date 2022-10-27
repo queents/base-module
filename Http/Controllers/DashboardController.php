@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Modules\Base\Services\Components\Base\Alert;
 use Modules\Base\Services\Components\Base\Render;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class DashboardController extends Controller
 {
@@ -19,6 +20,25 @@ class DashboardController extends Controller
     {
         auth('web')->logout();
         return redirect()->route('login');
+    }
+
+    public function getMedia(){
+        $media = Media::all()->groupBy('model_type');
+        $mediaCollection = [];
+        foreach ($media as $key=>$value){
+            $getKey = collect(explode("\\",$key))->last();
+            $mediaCollection[$getKey] = $value->toArray();
+        }
+
+        return response()->json([
+            "data" =>$mediaCollection
+        ]);
+    }
+
+    public function destroy(Media $media){
+        $media->delete();
+
+        return Alert::make(__('Your Media Item Has Been deleted'))->fire();
     }
 
     public function select(Request $request){
