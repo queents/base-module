@@ -99,7 +99,8 @@ trait Edit
         return Render::make(ucfirst(Str::camel($this->table)).'/Edit')->module($this->module)->data([
             "rows" => $rows,
             "record" => $record,
-            "url" => $this->table
+            "url" => $this->table,
+            "trans" => $this->loadTranslations()
         ])->render();
     }
 }

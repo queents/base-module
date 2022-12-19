@@ -29,7 +29,6 @@ class BaseServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        VILT::registerMenu(Menu::make('Dashboard')->label('global.dashboard')->icon('bx bx-home')->route('dashboard')->sort(0));
         VILT::registerMenu(Menu::make('Profile')->label('global.profile')->icon('bx bxs-user')->key('profile')->route('profile.show'));
         $this->registerConfig();
         $this->loadViewsFrom(module_path($this->moduleName, 'Resources/views'), 'base');
