@@ -22,7 +22,8 @@ trait Create
         $rows = $this->rows();
         return Render::make(ucfirst(Str::camel($this->table)).'/Create')->module($this->module)->data([
             "rows" => $rows,
-            "url" => $this->table
+            "url" => $this->table,
+            "trans" => $this->loadTranslations()
         ])->render();
     }
 }

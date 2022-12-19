@@ -65,7 +65,7 @@ trait Media
                             }
                         }
                     }
-                    else if(empty($request->get($field->name))){
+                    else if($field->edit && empty($request->get($field->name))){
                         $record->clearMediaCollection($field->name);
                     }
                 }

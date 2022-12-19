@@ -98,7 +98,8 @@ trait View
         return Render::make(ucfirst(Str::camel($this->table)).'/View')->module($this->module)->data([
             "rows" => $rows,
             "record" => $record,
-            "url" => $this->table
+            "url" => $this->table,
+            "trans" => $this->loadTranslations()
         ])->render();
     }
 }
